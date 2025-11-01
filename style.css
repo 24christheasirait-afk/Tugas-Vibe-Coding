@@ -1,0 +1,227 @@
+
+/* Custom Color Variables */
+:root {
+    --bg-color: #F0F4F8; /* Light Grayish Blue */
+    --accent-color-primary: #FF69B4; /* Vivid Pink */
+    --accent-color-secondary: #008080; /* Dark Teal */
+    --text-color: #1A1A1A; /* Black */
+    --font-stack: 'Poppins', sans-serif;
+}
+
+/* Basic Reset and Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-color-secondary);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color-primary);
+}
+
+/* --- Header & Navigation --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: #FFDCDC;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-color-primary);
+}
+
+nav a {
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+.cta-button {
+    background-color: var(--accent-color-primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.cta-button:hover {
+    background-color: #664343; /* Slightly darker pink */
+    transform: translateY(-2px);
+}
+
+/* --- Hero Section --- */
+.hero {
+    text-align: center;
+    padding: 80px 5% 50px;
+    background: linear-gradient(135deg, var(--bg-color) 0%, white 100%);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.hero h1 **strong** {
+    color: var(--accent-color-primary);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-bar i {
+    color: var(--accent-color-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* --- Pinterest-style Grid --- */
+.moodboard-grid {
+    column-count: 4; /* 4 columns on desktop */
+    column-gap: 10px;
+    padding: 20px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.pin {
+    break-inside: avoid;
+    margin-bottom: 10px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.pin:hover {
+    transform: scale(1.02);
+}
+
+.pin img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+.pin-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    color: white;
+    padding: 15px 10px 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.pin:hover .pin-info {
+    opacity: 1;
+}
+
+.pin-title {
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.pin-user {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-top: 1px solid #ddd;
+    font-size: 0.9rem;
+}
+
+/* --- Responsive Design (Mobile View) --- */
+@media (max-width: 900px) {
+    .moodboard-grid {
+        column-count: 3; /* 3 columns on tablets */
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    nav {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a, .cta-button {
+        margin: 5px 10px;
+    }
+    
+    .moodboard-grid {
+        column-count: 2; /* 2 columns on phones */
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
